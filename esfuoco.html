@@ -56,15 +56,17 @@
 <body onload="miointervallo">
 
     <div id="gameDiv">
-        <button id="fire" class="btn" onclick="prendiilcolore()">Fuoco</button>
+        <button id="fire" class="btn" onclick="prendiilcolore()">SPARA!</button>
         <div id="scoreContainer">
-            Tentativi Che ti Mancano</T>: <p id="tent">10</p>
-            Tempo Preso:<p id="click"></p>
+            Tentativi rimanenti: <p id="tent">10</p>
+            Tempo Dei Clik:<p id="click"></p>
         </div>
 
 
 
     </div>
+    <p>Clicca SPARA! quando vedi il  verde!</p>
+    <p id="click2">I tuoi tempi: </p>
     <script>
         let tent = 10;
         let coloreArray = [];
@@ -81,37 +83,42 @@
         const miointervallo = setInterval(cambiacolore, 1000);
 
         function cambiacolore() {
+            if (tent > 0) {
+                do {
+                    casuale = parseInt(Math.random() * 4);
+                }
+                while (casuale == coloreprecendente);
 
-            do {
-                casuale = parseInt(Math.random() * 4);
-            }
-            while (casuale == coloreprecendente);
-
-            document.getElementById("gameDiv").style.backgroundColor = coloreArray[casuale];
-            coloreprecendente = casuale;
-           
-            if (casuale == 1) {
-                prendoiltempo = Date.now();
+                document.getElementById("gameDiv").style.backgroundColor = coloreArray[casuale];
+                coloreprecendente = casuale;
+                if (casuale == 1) {
+                    prendoiltempo = Date.now();
+                }
             }
         }
         function prendiilcolore() {
             tent--;
-            if (tent > 0) {
+            if (tent> 0) {
                 document.getElementById('tent').innerHTML = tent;
             }
             let tempoDifferenza;
+            let media;
+            let somma = 0;
+            let contmedia=0;
+            let i=0;
             if (casuale == 1) {
                 if (tent > 0) {
+                    contmedia++;
                     tempoDifferenza = Date.now() - prendoiltempo;
                     arraytempiclick.push(tempoDifferenza);
                     document.getElementById("click").innerText = tempoDifferenza;
+                    document.getElementById("click2").innerText += tempoDifferenza + ',';
                     document.getElementById('tent').innerHTML = tent;
                 }
             }
-           if (tent == 0) {
+            if (tent == 0) {
                 document.getElementById('tent').innerHTML = '0';
-               
-
+         
             }
         }
     </script>
