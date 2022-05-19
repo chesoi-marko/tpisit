@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Esercizio analisi numerica</title>
+</head>
+
+<body onload="fattorizzazione();">
+    <script>
+        let conta=0;
+        let max1=0;
+        let max2=0;
+        let nummax;
+
+        let somma=0;
+
+      function fattorizzazione(){
+        for (let i=1;i<1000;i++) {
+        for(let j=1;j<1000/2;j++) {
+              if (i%j==0) { 
+                conta++;
+                }
+            }
+        if (max1<conta+1) {
+          max1=conta+1;
+          nummax=i;
+                }
+          conta=0;
+            }
+      document.getElementById('out').innerHTML += 'Il numero con più divisori tra 1 e 1000 è'+nummax+' e i divisori sono : '+max1;
+
+  for (let i=1000; i<2000;i++) {
+  for (let j=1;j<2000/2;j++) {
+  if (i%j==0) {
+  conta++;
+    }
+    }
+    if (max2<conta+1) {
+   max2=conta+1;
+  nummax=i;
+                }
+  conta=0;
+            }
+
+document.getElementById('out').innerHTML += 'Il numero con più divisori tra 1000 e 2000 è :  '+nummax+'  i  divisori sono:'+max2;
+
+    for (let i=1;i<1000;i++) {
+    for (let j=1;j<1000/2;j++) {
+    if (i%2==0 || i%3==0 || i%5==0 || i%7==0 || i%9==0) {
+    if (i%j==0) {
+      conta++;
+         }
+       }
+    }
+    somma+=conta+1;
+    conta=0;
+            }
+  document.getElementById('out').innerHTML+='la somma di tutti i fattori non primi è :'+somma;
+document.getElementById('out').innerHTML += 'La moltiplicazione del divisore massimo tra 1000 e di 2000 è :' + max1*max2;
+        }
+    </script>
+    <div id="out">
+    </div>
+</body>
+
+</html>
