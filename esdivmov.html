@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Div in diagonale che accelera</title>
+</head>
+<style>
+    div {
+        height: 100px;
+        width: 100px;
+        border-color: black;
+        border-width: 2px 2px 2px 2px;
+        border-style: solid;
+        position: absolute;
+        background-color: green;
+    }
+</style>
+<script>
+    let startx = 10;
+    let starty = 10;
+
+    function diag() {
+        let timer = 450;
+        setInterval(function() {
+            document.getElementById('div').style.marginLeft = "+" + startx + "px";
+            document.getElementById('div').style.marginTop = "+" + starty + "px";
+            startx += 1;
+            starty += 1;
+            diag();
+        }, 450);
+    }
+</script>
+
+<body onload="diag()">
+    <div id="div">
+
+    </div>
+</body>
+
+</html>
