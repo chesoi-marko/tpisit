@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>CODICE TEST PER I GIOCHI BASATI SUL TEMPO</h2>
+
+    <p id="demo">
+     In questa pagina tramite il bottone qua sotto scoprirai il tempo impiegato da te a premere il bottone dall'apertura della pagina 
+    </p>
+    <p id="out">...0.0...</p>
+    <button type="button" onclick="count()">Schiacciami</button>
+    <script>
+      let i = 0;
+      let start = Date.now();
+      function count() {
+        document.getElementById("out").innerHTML =
+          "Shiacciato in " + (Date.now() - start) + " ms";
+      }
+    </script>
+  </body>
+</html>
